@@ -1,4 +1,4 @@
-module https://github.com/nronzel/cik-lookup
+module github.com/nronzel/cik-lookup
 
 go 1.21.3
 
