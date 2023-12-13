@@ -48,9 +48,14 @@ Example:
 go run main.go microsoft corporation
 ```
 
+### Note
+
+The results are truncated to 100 if more than 100 results are found. Try being
+more specific in these situations.
+
 ## How It Works
 
-Simple POST request with the company name to the SEC CIK lookup URL.
+Simple POST request with the company name to the [SEC CIK lookup URL](https://www.sec.gov/edgar/searchedgar/cik).
 
 ## Contributing
 
