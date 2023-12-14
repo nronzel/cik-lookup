@@ -45,7 +45,7 @@ Replacing the company name with the company you want to look up.
 Example:
 
 ```bash
-go run main.go microsoft corporation
+go run main.go microsoft corp
 ```
 
 ### Note
