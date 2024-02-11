@@ -26,10 +26,10 @@ git clone https://github.com/nronzel/cik-lookup.git
 cd cik-lookup
 ```
 
-Ensure you have goquery installed:
+Install Dependencies
 
 ```bash
-go get -u github.com/PuerkitoBio/goquery
+go mod tidy
 ```
 
 ## Usage
