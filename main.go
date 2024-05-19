@@ -24,6 +24,7 @@ const (
 	ContentType = "application/x-www-form-urlencoded"
 	Referer     = "https://www.sec.gov/edgar/searchedgar/cik"
 	Origin      = "https://www.sec.gov"
+
 	Timeout     = 10 * time.Second
 )
 
@@ -48,7 +49,7 @@ func makeRequest(company string) string {
 		log.Fatalf("problem making POST: %v", err)
 	}
 
-	setRequestHeaders(req, reqBody.Len())
+	setRequestHeaders(req)
 
 	client := &http.Client{Timeout: Timeout}
 	resp, err := client.Do(req)
@@ -60,7 +61,7 @@ func makeRequest(company string) string {
 	return readResponseBody(resp)
 }
 
-func setRequestHeaders(req *http.Request, contentLength int) {
+func setRequestHeaders(req *http.Request) {
 	req.Header.Set("User-Agent", UserAgent)
 	req.Header.Set("Accept", Accept)
 	req.Header.Set("Accept-Language", AcceptLang)
@@ -68,7 +69,6 @@ func setRequestHeaders(req *http.Request, contentLength int) {
 	req.Header.Set("Content-Type", ContentType)
 	req.Header.Set("Referer", Referer)
 	req.Header.Set("Origin", Origin)
-	req.Header.Set("Content-Length", fmt.Sprintf("%d", contentLength))
 }
 
 func readResponseBody(resp *http.Response) string {
